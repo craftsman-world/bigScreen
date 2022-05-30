@@ -23,13 +23,13 @@
       {
         type: "category",
         data: [
-          "工匠",
-          "木匠",
-          "泥瓦工",
-          "关模",
-          "腻匠",
-          "贴砖工",
-          "水泥工"
+          "土建",
+          "机械",
+          "管理",
+          "防护",
+          "装饰",
+          "桩基",
+          // ""
         ],
         axisTick: {
           alignWithLabel: true
@@ -73,7 +73,7 @@
         name: "直接访问",
         type: "bar",
         barWidth: "35%",
-        data: [200, 300, 300, 900, 1500, 1200, 600],
+        data: [32400, 12034, 5042, 24510, 26090, 12000, 13000],
         itemStyle: {
           barBorderRadius: 5
         }
@@ -276,8 +276,8 @@
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".bar1 .chart"));
 
-  var data = [30, 20, 20, 20, 10];
-  var titlename = ["甘肃", "浙江", "陕西", "四川", "广东"];
+  var data = [50, 20, 10, 10, 10];
+  var titlename = ["浙江", "甘肃", "陕西", "四川", "广东"];
   var valdata = [14, 9, 4, 2, 1];
   var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
   option = {
@@ -321,7 +321,7 @@
         }
       },
       {
-        show: true,
+        show: false,
         inverse: true,
         data: valdata,
         axisLabel: {
