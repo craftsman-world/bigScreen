@@ -58,6 +58,7 @@ header .showTime {
 .panel {
   position: relative;
   height: 3.875rem;
+  width: 7rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
   background: rgba(255, 255, 255, 0.04);
   padding: 0 0.1875rem 0.5rem;
@@ -253,4 +254,15 @@ header .showTime {
   html {
     font-size: 80px !important;
   }
+}
+
+.line1 .chart {
+  /* background-color: #02a6b5; */
+}
+
+
+.swiper-slide{
+  /* width:100px; */
+  width:auto;
+  text-align: center;
 }

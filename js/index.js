@@ -385,7 +385,7 @@
 // 折线图 优秀作品
 (function() {
   // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(document.querySelector(".line1 .chart"));
+  // var myChart = echarts.init(document.querySelector(".line1 .chart"));
 
   option = {
     tooltip: {
@@ -646,10 +646,10 @@
   };
 
   // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
-  window.addEventListener("resize", function() {
-    myChart.resize();
-  });
+  // myChart.setOption(option);
+  // window.addEventListener("resize", function() {
+  //   myChart.resize();
+  // });
 })();
 
 // 点位分布统计模块
