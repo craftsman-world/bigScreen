@@ -655,7 +655,7 @@
 // 点位分布统计模块
 (function() {
   // 1. 实例化对象
-  var myChart = echarts.init(document.querySelector(".pie1  .chart"));
+  // var myChart = echarts.init(document.querySelector(".pie1  .chart"));
   // 2. 指定配置项和数据
   var option = {
     legend: {
@@ -716,10 +716,10 @@
   };
 
   // 3. 配置项和数据给我们的实例化对象
-  myChart.setOption(option);
+  // myChart.setOption(option);
   // 4. 当我们浏览器缩放的时候，图表也等比例缩放
-  window.addEventListener("resize", function() {
-    // 让我们的图表调用 resize这个方法
-    myChart.resize();
-  });
+  // window.addEventListener("resize", function() {
+  //   // 让我们的图表调用 resize这个方法
+  //   myChart.resize();
+  // });
 })();

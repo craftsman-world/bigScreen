@@ -97,33 +97,33 @@
           <div class="chart"></div>
           <div class="panel-footer"></div>
         </div> -->
-      <div class="panel pie1">
+      <!-- <div class="panel pie1">
         <h2>工人地区分布</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
-      </div>
-      <div class="panel line1">
+      </div> -->
+      <div class="panel line1 app">
         <h2>应用展示</h2>
-        <div class="chart swiper-container">
+        <div class="swiper-container">
           <!-- swiper -->
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="./images/1.png" style="height:100%" alt="" srcset="">
+              <img src="./images/1.png" style="height:6.5rem;" alt="" srcset="">
             </div>
             <div class="swiper-slide">
-              <img src="./images/2.png" style="height:100%" alt="" srcset="">
+              <img src="./images/2.png" style="height:6.5rem" alt="" srcset="">
             </div>
             <div class="swiper-slide">
-              <img src="./images/3.png" style="height:100%" alt="" srcset="">
+              <img src="./images/3.png" style="height:6.5rem" alt="" srcset="">
             </div>
             <div class="swiper-slide">
-              <img src="./images/4.png" style="height:100%" alt="" srcset="">
+              <img src="./images/4.png" style="height:6.5rem" alt="" srcset="">
             </div>
             <div class="swiper-slide">
-              <img src="./images/5.png" style="height:100%" alt="" srcset="">
+              <img src="./images/5.png" style="height:6.5rem" alt="" srcset="">
             </div>
             <div class="swiper-slide">
-              <img src="./images/7.png" style="height:100%" alt="" srcset="">
+              <img src="./images/7.png" style="height:6.5rem" alt="" srcset="">
             </div>
           </div>
         </div>
@@ -153,10 +153,13 @@
 <script src="./js/swiper.min.js"></script>
 <script>
   var mySwiper = new Swiper('.swiper-container', {
-    autoplay: true,
+    autoplay: {
+      delay: 2000,
+      stopOnLastSlide: false,
+    },
+    speed: 5000,
     loop: true,
-    // effect: 'coverflow',
-    slidesPerView: 3,
-    centeredSlides: true,
+    freeMode: true,
+    slidesPerView: 1,
   })
 </script>
