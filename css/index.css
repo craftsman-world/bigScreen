@@ -277,5 +277,6 @@ header .showTime {
 
 
 .app {
-  height: 7.75rem;
+  height: 7.95rem;
+  overflow: hidden;
 }
