@@ -8,14 +8,14 @@ export default defineComponent({
   setup() {
     let intervalInstance = null
     const cdata = reactive({
-      xData: ['数据1', '数据2', '数据3', '数据4', '数据5', '数据6'],
+      xData: ['土建', '机械', '管理', '防护', '装饰', '桩基'],
       seriesData: [
-        { value: 10, name: '数据1' },
-        { value: 5, name: '数据2' },
-        { value: 15, name: '数据3' },
-        { value: 25, name: '数据4' },
-        { value: 20, name: '数据5' },
-        { value: 35, name: '数据6' },
+        { value: 10, name: '土建' },
+        { value: 5, name: '机械' },
+        { value: 15, name: '管理' },
+        { value: 25, name: '防护' },
+        { value: 20, name: '装饰' },
+        { value: 35, name: '桩基' },
       ],
     })
     intervalInstance = setInterval(() => {

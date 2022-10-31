@@ -13,7 +13,7 @@ export default defineComponent({
   props: PropsType,
   setup(props) {
     // 配置项
-    let options = shallowReactive({showLegendSymbol:null,tooltip:null,geo:null,series:null})
+    let options = shallowReactive({ showLegendSymbol: null, tooltip: null, geo: null, series: null })
     // 设置点的位置(经纬度)
     const geoCoordMap = {
       厦门市: [118.11022, 24.490474, 20],
@@ -109,7 +109,7 @@ export default defineComponent({
             zoom: 1.16,
             top: '10%',
             left: '17%',
-            map: '福建',
+            map: 'china',
             roam: false,
             itemStyle: {
               normal: {
@@ -126,7 +126,7 @@ export default defineComponent({
               type: 'map',
               aspectScale: 0.85, //长宽比
               zoom: 1.16, //缩放
-              mapType: '福建', // 自定义扩展图表类型
+              mapType: 'china', // 自定义扩展图表类型
               top: '9%',
               left: '16%',
               itemStyle: {
@@ -205,8 +205,8 @@ export default defineComponent({
       }
     )
     return () => {
-      const height = "360px"
-      const width = "330px"
+      const height = "460px"
+      const width = "930px"
 
       return <div>
         <echart options={options} height={height} width={width} />

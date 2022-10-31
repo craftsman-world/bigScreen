@@ -17,19 +17,19 @@
         <span>
           <i class="iconfont icon-tongji2"></i>
         </span>
-        <span class="fs-xl text mx-2 mb-1">年度负责人组件达标榜</span>
+        <span class="fs-xl text mx-2 mb-1">平台数据</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board" :config="ranking" />
       </div>
       <div class="percent">
         <div class="item bg-color-black">
-          <span>今日任务通过率</span>
+          <span>今日同比增长</span>
           <chart
             :tips="rate[0].tips"
             :colorObj="rate[0].colorData"
           />
         </div>
         <div class="item bg-color-black">
-          <span>今日任务达标率</span>
+          <span>本月同比增长率</span>
           <chart
             :tips="rate[1].tips"
             :colorObj="rate[1].colorData"
@@ -56,27 +56,27 @@ export default defineComponent({
     const titleDate = [
       {
         number: 1020,
-        text: '今年累计任务建次数'
+        text: '今日用户增长数'
       },
       {
-        number: 18,
-        text: '本月累计任务次数'
+        number: 14228,
+        text: '本月用户增长数'
       },
       {
-        number: 4,
-        text: '今日累计任务次数'
+        number: 47863,
+        text: '今年用户增长数'
       },
       {
-        number: 71,
-        text: '今年失败任务次数'
+        number: 717,
+        text: '今日用户打开数'
       },
       {
-        number: 949,
-        text: '今年失败成功次数'
+        number: 94995,
+        text: '本月用户打开数'
       },
       {
-        number: 811,
-        text: '今年达标任务个数'
+        number: 8114321,
+        text: '今年用户打开数'
       },
     ]
     const titleItem = reactive([])
@@ -89,52 +89,24 @@ export default defineComponent({
     const ranking = reactive({
       data: [
         {
-          name: '周口',
-          value: 55
+          name: '小程序',
+          value: 550
         },
         {
-          name: '南阳',
+          name: 'APP',
           value: 120
         },
         {
-          name: '西峡',
+          name: 'IOS',
           value: 78
         },
-        {
-          name: '驻马店',
-          value: 66
-        },
-        {
-          name: '新乡',
-          value: 80
-        },
-        {
-          name: '新乡2',
-          value: 80
-        },
-        {
-          name: '新乡3',
-          value: 80
-        },
-        {
-          name: '新乡4',
-          value: 80
-        },
-        {
-          name: '新乡5',
-          value: 80
-        },
-        {
-          name: '新乡6',
-          value: 80
-        }
       ],
       carousel: 'single',
       unit: '人'
     })
 
     const water = reactive({
-      data: [24, 45],
+      data: [52, 65],
       shape: 'roundRect',
       formatter: '{value}%',
       waveNum: 3
@@ -178,7 +150,7 @@ export default defineComponent({
           title: e.text,
           config: {
             number: [e.number],
-            toFixed: 1,
+            // toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
             style: {

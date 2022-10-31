@@ -6,7 +6,7 @@
           <i class="iconfont icon-tongji4" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务通过率</span>
+          <span class="fs-xl text mx-2">工种分布</span>
           <dv-decoration-3 class="dv-dec-3" />
         </div>
       </div>
@@ -26,7 +26,9 @@
           </div>
           <p>
             <span> {{ item.text }} </span>
-            <span class="colorYellow">(件)</span>
+            <span class="colorYellow">
+              <!-- (件) -->
+              </span>
           </p>
         </div>
       </div>
@@ -45,20 +47,20 @@ export default defineComponent({
     // 下层数据
     const dataArr = [
       {
-        number: 150,
-        text: '今日构建总量'
+        number: 35630,
+        text: '土建'
       },
       {
-        number: 144,
-        text: '总共完成数量'
+        number: 14423,
+        text: '机械'
       },
       {
-        number: 361,
-        text: '正在编译数量'
+        number: 3261,
+        text: '管理'
       },
       {
-        number: 571,
-        text: '未通过数量'
+        number: 15710,
+        text: '装饰'
       }
     ]
     // 对应图标
@@ -72,7 +74,7 @@ export default defineComponent({
     let intervalInstance = null
     onMounted(() => {
       setData()
-      changeTiming()
+      // changeTiming()
     })
 
     const setData = () => {
@@ -80,7 +82,7 @@ export default defineComponent({
         numberData.push({
           config: {
             number: [e.number],
-            toFixed: 1,
+            // toFixed: 1,
             content: '{nt}',
             style: {
               fontSize: 24

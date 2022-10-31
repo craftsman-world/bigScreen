@@ -53,38 +53,39 @@
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
-              <dv-border-box-12>
+              <dv-border-box-1>
                 <center-left1 />
-              </dv-border-box-12>
+              </dv-border-box-1>
             </div>
             <div>
-              <dv-border-box-12>
-                <center-left2 />
-              </dv-border-box-12>
+              <dv-border-box-8>
+                <bottom-left />
+              </dv-border-box-8>
             </div>
             <!-- 中间 -->
             <div>
               <center />
             </div>
             <!-- 中间 -->
-            <div>
+            <!-- <div>
               <center-right1 />
-            </div>
-            <div>
+            </div> -->
+            <!-- <div>
               <dv-border-box-13>
                 <center-right2 />
               </dv-border-box-13>
-            </div>
+            </div> -->
           </div>
 
           <!-- 第四行数据 -->
           <div class="bototm-box">
-            <dv-border-box-13>
-              <bottom-left />
-            </dv-border-box-13>
             <dv-border-box-12>
-              <bottom-right />
+              <!--  -->
+              <center-left2 />
             </dv-border-box-12>
+            <dv-border-box-13>
+              <bottom-right />
+            </dv-border-box-13>
           </div>
         </div>
       </div>
@@ -93,24 +94,18 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  reactive,
-  onMounted,
-  onUnmounted,
-} from 'vue'
-import { formatTime } from '@/utils/index'
-import { WEEK } from '@/constant/index'
-import useDraw from '@/utils/useDraw'
-import { title, subtitle, moduleInfo } from '@/constant/index'
-import CenterLeft1 from '../centerLeft1/index.vue'
-import CenterLeft2 from '../centerLeft2/index.vue'
-import Center from '../center/index.vue'
-import CenterRight1 from '../centerRight1/index.vue'
-import CenterRight2 from '../centerRight2/index.vue'
-import BottomLeft from '../bottomLeft/index.vue'
-import BottomRight from '../bottomRight/index.vue'
+import { defineComponent, ref, reactive, onMounted, onUnmounted } from "vue";
+import { formatTime } from "@/utils/index";
+import { WEEK } from "@/constant/index";
+import useDraw from "@/utils/useDraw";
+import { title, subtitle, moduleInfo } from "@/constant/index";
+import CenterLeft1 from "../centerLeft1/index.vue";
+import CenterLeft2 from "../centerLeft2/index.vue";
+import Center from "../center/index.vue";
+import CenterRight1 from "../centerRight1/index.vue";
+import CenterRight2 from "../centerRight2/index.vue";
+import BottomLeft from "../bottomLeft/index.vue";
+import BottomRight from "../bottomRight/index.vue";
 
 export default defineComponent({
   components: {
@@ -120,53 +115,53 @@ export default defineComponent({
     CenterRight1,
     CenterRight2,
     BottomLeft,
-    BottomRight
+    BottomRight,
   },
   setup() {
     // * 颜色
-    const decorationColors = ['#568aea', '#000000']
+    const decorationColors = ["#568aea", "#000000"];
     // * 加载标识
-    const loading = ref<boolean>(true)
+    const loading = ref<boolean>(true);
     // * 时间内容
     const timeInfo = reactive({
       setInterval: 0,
-      dateDay: '',
-      dateYear: '',
-      dateWeek: ''
-    })
+      dateDay: "",
+      dateYear: "",
+      dateWeek: "",
+    });
     // * 适配处理
-    const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
+    const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw();
     // 生命周期
     onMounted(() => {
-      cancelLoading()
-      handleTime()
+      cancelLoading();
+      handleTime();
       // todo 屏幕适应
-      windowDraw()
-      calcRate()
-    })
+      windowDraw();
+      calcRate();
+    });
 
     onUnmounted(() => {
-      unWindowDraw()
-      clearInterval(timeInfo.setInterval)
-    })
+      unWindowDraw();
+      clearInterval(timeInfo.setInterval);
+    });
 
     // methods
     // todo 处理 loading 展示
     const cancelLoading = () => {
       setTimeout(() => {
-        loading.value = false
-      }, 500)
-    }
+        loading.value = false;
+      }, 500);
+    };
 
     // todo 处理时间监听
     const handleTime = () => {
       timeInfo.setInterval = setInterval(() => {
-        const date = new Date()
-        timeInfo.dateDay = formatTime(date, 'HH: mm: ss')
-        timeInfo.dateYear = formatTime(date, 'yyyy-MM-dd')
-        timeInfo.dateWeek = WEEK[date.getDay()]
-      }, 1000)
-    }
+        const date = new Date();
+        timeInfo.dateDay = formatTime(date, "HH: mm: ss");
+        timeInfo.dateYear = formatTime(date, "yyyy-MM-dd");
+        timeInfo.dateWeek = WEEK[date.getDay()];
+      }, 1000);
+    };
 
     // return
     return {
@@ -175,12 +170,12 @@ export default defineComponent({
       appRef,
       title,
       subtitle,
-      moduleInfo
-    }
-  }
-})
+      moduleInfo,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/index.scss';
+@import "@/assets/scss/index.scss";
 </style>

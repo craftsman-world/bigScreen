@@ -27,7 +27,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$box-height: 520px;
+$box-height: 410px;
 $box-width: 100%;
 .bottomLeft {
   padding: 20px 16px;

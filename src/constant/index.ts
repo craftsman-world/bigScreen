@@ -4,8 +4,8 @@ import { ModuleInfo } from './index.d'
 export const WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
 
 // 主题名称与副标题名称
-export const title = '大数据可视化平台'
-export const subtitle = ['数据分析1', '数据分析2', 'vue-big-screen']
+export const title = '秒开工大数据可视化'
+export const subtitle = ['秒开工实时数据', '', '匠天下科技']
 
 export const moduleInfo: ModuleInfo = [
   // 中间的几个模块

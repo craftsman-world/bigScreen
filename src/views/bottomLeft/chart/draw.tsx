@@ -80,7 +80,7 @@ export default defineComponent({
           ],
           series: [
             {
-              name: "贯通率",
+              name: "完工率",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -95,7 +95,7 @@ export default defineComponent({
               data: val.rateData
             },
             {
-              name: "已贯通",
+              name: "已完工",
               type: "bar",
               barWidth: 10,
               itemStyle: {
@@ -109,24 +109,24 @@ export default defineComponent({
               },
               data: val.barData
             },
-            {
-              name: "计划贯通",
-              type: "bar",
-              barGap: "-100%",
-              barWidth: 10,
-              itemStyle: {
-                normal: {
-                  barBorderRadius: 5,
-                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "rgba(156,107,211,0.8)" },
-                    { offset: 0.2, color: "rgba(156,107,211,0.5)" },
-                    { offset: 1, color: "rgba(156,107,211,0.2)" }
-                  ])
-                }
-              },
-              z: -12,
-              data: val.lineData
-            }
+            // {
+            //   name: "计划贯通",
+            //   type: "bar",
+            //   barGap: "-100%",
+            //   barWidth: 10,
+            //   itemStyle: {
+            //     normal: {
+            //       barBorderRadius: 5,
+            //       color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            //         { offset: 0, color: "rgba(156,107,211,0.8)" },
+            //         { offset: 0.2, color: "rgba(156,107,211,0.5)" },
+            //         { offset: 1, color: "rgba(156,107,211,0.2)" }
+            //       ])
+            //     }
+            //   },
+            //   z: -12,
+            //   data: val.lineData
+            // }
           ]
         }
         // 手动触发更新
@@ -142,7 +142,7 @@ export default defineComponent({
     )
 
     return () => {
-      const height = "450px"
+      const height = "350px"
       const width = "100%"
 
       return <div>

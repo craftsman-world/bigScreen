@@ -30,7 +30,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .centreLeft1 {
   $box-width: 300px;
-  $box-height: 410px;
+  $box-height: 520px;
   padding: 16px;
   height: $box-height;
   min-width: $box-width;
