@@ -34,7 +34,7 @@ export default defineComponent({
       (val: any) => {
         options = {
           title: {
-            text: val * 1 + "%",
+            text: val * 1 + "",
             x: "center",
             y: "center",
             textStyle: {

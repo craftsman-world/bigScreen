@@ -9,8 +9,13 @@ import './assets/scss/style.scss';
 import './assets/icon/iconfont.css'
 // 引入 全局注册组件
 import PublicComponent from '@/components/componentInstall';
+// 引入 axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 const app = createApp(App)
+app.use(VueAxios, axios)
+app.provide('axios', app.config.globalProperties.axios)  // provide 'axios'
 app.use(PublicComponent)
 app.use(dataV)
 app.use(store)

@@ -58,14 +58,14 @@
               </dv-border-box-1>
             </div>
             <div>
-              <dv-border-box-8>
+              <dv-border-box-1>
                 <bottom-left />
-              </dv-border-box-8>
+              </dv-border-box-1>
             </div>
             <!-- 中间 -->
-            <div>
+            <dv-border-box-1>
               <center />
-            </div>
+            </dv-border-box-1>
             <!-- 中间 -->
             <!-- <div>
               <center-right1 />
