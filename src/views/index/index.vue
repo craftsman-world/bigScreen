@@ -84,7 +84,9 @@
               <center-left2 />
             </dv-border-box-12>
             <dv-border-box-13>
-              <bottom-right />
+              <!-- <bottom-right /> -->
+              <!-- <center-right1 /> -->
+              <center-right2 />
             </dv-border-box-13>
           </div>
         </div>

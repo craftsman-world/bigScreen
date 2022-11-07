@@ -55,8 +55,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$box-height: 400px;
-$box-width: 340px;
+$box-height: 480px;
+$box-width: 100%;
 .centerRight1 {
   padding: 5px;
   height: $box-height;

@@ -28,7 +28,7 @@
             <span> {{ item.text }} </span>
             <span class="colorYellow">
               <!-- (件) -->
-              </span>
+            </span>
           </p>
         </div>
       </div>
@@ -37,80 +37,81 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted,  reactive } from 'vue'
-import Chart from './chart/index'
+import axios from "axios";
+import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
+import Chart from "./chart/index";
 export default defineComponent({
   components: {
-    Chart
+    Chart,
   },
   setup() {
     // 下层数据
-    const dataArr = [
-      {
-        number: 35630,
-        text: '土建'
-      },
-      {
-        number: 14423,
-        text: '机械'
-      },
-      {
-        number: 3261,
-        text: '管理'
-      },
-      {
-        number: 15710,
-        text: '装饰'
-      }
-    ]
+    const dataArr = [];
     // 对应图标
     const iconFont = [
-      'icon-diagnose',
-      'icon-monitoring',
-      'icon-cloudupload',
-      'icon-clouddownload'
-    ]
-    const numberData = reactive([])
-    let intervalInstance = null
+      "icon-diagnose",
+      "icon-monitoring",
+      "icon-cloudupload",
+      "icon-clouddownload",
+      "icon-clouddownload",
+    ];
+    const numberData = reactive([]);
+    let intervalInstance = null;
     onMounted(() => {
-      setData()
+      getData();
       // changeTiming()
-    })
+    });
 
     const setData = () => {
-      dataArr.forEach(e => {
+      dataArr.forEach((e) => {
         numberData.push({
           config: {
             number: [e.number],
             // toFixed: 1,
-            content: '{nt}',
+            content: "{nt}",
             style: {
-              fontSize: 24
-            }
+              fontSize: 24,
+            },
           },
-          text: e.text
-        })
-      })
-    }
+          text: e.text,
+        });
+      });
+    };
+
+    const getData = () => {
+      axios
+        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
+        .then(({ data: { data: res } }) => {
+          console.log(res.job.countByType);
+          for (let i = 0; i < 4; i++) {
+            let e = res.job.countByType[i];
+            dataArr.push({
+              number: e.count,
+              text: e.name,
+            });
+          }
+          setData();
+        });
+    };
 
     const changeTiming = () => {
       intervalInstance = setInterval(() => {
-        changeNumber()
-      }, 2000)
-    }
+        changeNumber();
+      }, 2000);
+    };
     const changeNumber = () => {
       numberData.forEach((item, index) => {
-        item.config.number[0] += ++index
-        item.config = { ...item.config }
-      })
-    }
+        item.config.number[0] += ++index;
+        item.config = { ...item.config };
+      });
+    };
     onUnmounted(() => {
-      clearInterval(intervalInstance)   
-    })
+      clearInterval(intervalInstance);
+    });
 
-    return { numberData, iconFont}
-  }
-})
+    return { numberData, iconFont };
+  },
+});
 </script>
 
 <style lang="scss" scoped>

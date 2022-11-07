@@ -80,7 +80,7 @@ export default defineComponent({
           ],
           series: [
             {
-              name: "完工率",
+              name: "工作折线图",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -95,7 +95,7 @@ export default defineComponent({
               data: val.rateData
             },
             {
-              name: "已完工",
+              name: "工作条形图",
               type: "bar",
               barWidth: 10,
               itemStyle: {

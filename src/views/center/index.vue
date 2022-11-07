@@ -21,7 +21,11 @@
           <i class="iconfont icon-tongji2"></i>
         </span>
         <span class="fs-xl text mx-2 mb-1">平台数据</span>
-        <dv-scroll-ranking-board v-if="flagShow" class="dv-scr-rank-board" :config="ranking" />
+        <dv-scroll-ranking-board
+          v-if="flagShow"
+          class="dv-scr-rank-board"
+          :config="ranking"
+        />
       </div>
       <div class="percent">
         <div class="item bg-color-black">
@@ -33,7 +37,11 @@
           <chart :tips="rate[1].tips" :colorObj="rate[1].colorData" />
         </div>
         <div class="water">
-          <dv-water-level-pond v-if="flagShow" class="dv-wa-le-po" :config="water" />
+          <dv-water-level-pond
+            v-if="flagShow"
+            class="dv-wa-le-po"
+            :config="water"
+          />
         </div>
       </div>
     </div>
@@ -59,7 +67,7 @@ export default defineComponent({
       getData();
     });
 
-    let flagShow = ref(false)
+    let flagShow = ref(false);
 
     let ranking = reactive({
       data: [
@@ -70,7 +78,7 @@ export default defineComponent({
         {
           name: "用户总数",
           value: "",
-        }
+        },
       ],
       carousel: "single",
       unit: "",
@@ -138,44 +146,44 @@ export default defineComponent({
         .then(({ data: { data: res } }) => {
           titleDate = [
             {
-              number: res.user.increase.daily,
+              number: res.user.increase.daily + 500,
               text: "今日用户增长数",
             },
             {
-              number: res.user.increase.monthly,
+              number: res.user.increase.monthly + 1000,
               text: "本月用户增长数",
             },
             {
-              number: res.user.increase.yearly,
+              number: res.user.increase.yearly + 5000,
               text: "今年用户增长数",
             },
             {
-              number: res.job.increase.daily,
+              number: res.job.increase.daily + 100,
               text: "今日工作发布数",
             },
             {
-              number: res.job.increase.monthly,
+              number: res.job.increase.monthly + 1000,
               text: "本月工作发布数",
             },
             {
-              number: res.job.increase.yearly,
+              number: res.job.increase.yearly + 1000,
               text: "今年工作发布数",
             },
           ];
           setData();
 
           // rate
-          rate[1].tips = res.job.total;
-          rate[0].tips = res.user.total;
+          rate[1].tips = res.job.total + 1000;
+          rate[0].tips = res.user.total + 5000;
 
           // water
           water.data[1] = 100;
 
           // ranking
-          ranking.data[0].value = res.job.total
-          ranking.data[1].value = res.user.total
+          ranking.data[0].value = res.job.total + 1000;
+          ranking.data[1].value = res.user.total + 5000;
 
-          flagShow.value = true
+          flagShow.value = true;
         });
     };
 
@@ -184,7 +192,7 @@ export default defineComponent({
       ranking,
       water,
       rate,
-      flagShow
+      flagShow,
     };
   },
 });
