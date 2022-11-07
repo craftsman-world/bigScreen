@@ -38,7 +38,7 @@ export default defineComponent({
           },
           grid: {
             x: "8%",
-            width: "88%",
+            width: "85%",
             top: "5%",
             bottom: '7%'
           },
