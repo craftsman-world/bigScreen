@@ -37,6 +37,7 @@
 </template>
 
 <script lang="ts">
+import store from "@/store";
 import axios from "axios";
 import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 import Chart from "./chart/index";
@@ -79,19 +80,15 @@ export default defineComponent({
     };
 
     const getData = () => {
-      axios
-        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
-        .then(({ data: { data: res } }) => {
-          console.log(res.job.countByType);
-          for (let i = 0; i < 4; i++) {
-            let e = res.job.countByType[i];
-            dataArr.push({
-              number: e.count,
-              text: e.name,
-            });
-          }
-          setData();
+      let res = store.getters.data;
+      for (let i = 0; i < 4; i++) {
+        let e = res.job.countByType[i];
+        dataArr.push({
+          number: e.count,
+          text: e.name,
         });
+      }
+      setData();
     };
 
     const changeTiming = () => {

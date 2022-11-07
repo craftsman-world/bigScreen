@@ -108,6 +108,7 @@ import CenterRight1 from "../centerRight1/index.vue";
 import CenterRight2 from "../centerRight2/index.vue";
 import BottomLeft from "../bottomLeft/index.vue";
 import BottomRight from "../bottomRight/index.vue";
+import store from "@/store";
 
 export default defineComponent({
   components: {
@@ -150,9 +151,15 @@ export default defineComponent({
     // methods
     // todo 处理 loading 展示
     const cancelLoading = () => {
-      setTimeout(() => {
+      // 定时请求
+      store.dispatch("GET_DATA").then(() => {
         loading.value = false;
-      }, 500);
+      });
+
+      setInterval(() => {
+        store.dispatch("GET_DATA").then(() => {
+      });
+      }, 1000 * 60 * 10);
     };
 
     // todo 处理时间监听

@@ -1,3 +1,4 @@
+import store from '@/store';
 import axios from 'axios';
 import { defineComponent, onMounted, reactive } from 'vue'
 import Draw from './draw'
@@ -26,17 +27,13 @@ export default defineComponent({
     })
 
     const getData = () => {
-      axios
-        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
-        .then(({ data: { data: res } }) => {
-          console.log(res.job.countByType);
-          res.job.countByType.map((e) => {
-            cdata.xData.push(e.name)
-            cdata.seriesData.push(
-              { value: e.count, name: e.name }
-            )
-          })
-        });
+      let res = store.getters.data;
+      res.job.countByType.map((e) => {
+        cdata.xData.push(e.name)
+        cdata.seriesData.push(
+          { value: e.count, name: e.name }
+        )
+      })
     };
 
     return () => {

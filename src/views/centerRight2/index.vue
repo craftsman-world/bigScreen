@@ -6,7 +6,7 @@
           <i class="iconfont icon-vector" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务完成排行榜</span>
+          <span class="fs-xl text mx-2">用户省份分布表</span>
         </div>
       </div>
       <div class="d-flex mt-1 jc-center body-box">
@@ -17,11 +17,12 @@
 </template>
 
 <script>
+import store from "@/store";
 import axios from "axios";
 import { defineComponent, onMounted, reactive, ref } from "vue";
 export default defineComponent({
   setup() {
-    let show = ref(false)
+    let show = ref(false);
     const config = reactive({
       header: ["省份", "用户数", ""],
       data: [
@@ -51,17 +52,17 @@ export default defineComponent({
     });
 
     const getData = () => {
-      axios
-        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
-        .then(({ data: { data: res } }) => {
-          res.user.countByWantPro.map((e) => {
-            config.data.push([e.name, e.count]);
-          });
-          show.value = true
+      setInterval(() => {
+        show.value = false;
+        let res = store.getters.data;
+        res.user.countByWantPro.map((e) => {
+          config.data.push([e.name, e.count]);
         });
+        show.value = true;
+      }, 1000);
     };
 
-    return { config,show };
+    return { config, show };
   },
 });
 </script>

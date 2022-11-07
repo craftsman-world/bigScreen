@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import store from "@/store";
 import axios from "axios";
 import { defineComponent, reactive, onMounted, ref } from "vue";
 import Chart from "../center/chart/draw";
@@ -60,7 +61,7 @@ export default defineComponent({
   setup() {
     // 下层数据
     let titleDate = [];
-    const titleItem = reactive([]);
+    let titleItem = reactive([]);
 
     // 初始化数据
     onMounted(() => {
@@ -117,6 +118,7 @@ export default defineComponent({
 
     // 设置数据
     const setData = () => {
+      titleItem.length = 0;
       titleDate.map((e) => {
         titleItem.push({
           title: e.text,
@@ -141,50 +143,52 @@ export default defineComponent({
     });
     // 加载数据
     const getData = () => {
-      axios
-        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
-        .then(({ data: { data: res } }) => {
-          titleDate = [
-            {
-              number: res.user.increase.daily + 500,
-              text: "今日用户增长数",
-            },
-            {
-              number: res.user.increase.monthly + 1000,
-              text: "本月用户增长数",
-            },
-            {
-              number: res.user.increase.yearly + 5000,
-              text: "今年用户增长数",
-            },
-            {
-              number: res.job.increase.daily + 100,
-              text: "今日工作发布数",
-            },
-            {
-              number: res.job.increase.monthly + 1000,
-              text: "本月工作发布数",
-            },
-            {
-              number: res.job.increase.yearly + 1000,
-              text: "今年工作发布数",
-            },
-          ];
-          setData();
+      setInterval(() => {
+        flagShow.value = false;
+        let res = store.getters.data;
 
-          // rate
-          rate[1].tips = res.job.total + 1000;
-          rate[0].tips = res.user.total + 5000;
+        titleDate = [
+          {
+            number: res.user.increase.daily + 500,
+            text: "今日用户增长数",
+          },
+          {
+            number: res.user.increase.monthly + 1000,
+            text: "本月用户增长数",
+          },
+          {
+            number: res.user.increase.yearly + 5000,
+            text: "今年用户增长数",
+          },
+          {
+            number: res.job.increase.daily + 100,
+            text: "今日工作发布数",
+          },
+          {
+            number: res.job.increase.monthly + 1000,
+            text: "本月工作发布数",
+          },
+          {
+            number: res.job.increase.yearly + 1000,
+            text: "今年工作发布数",
+          },
+        ];
 
-          // water
-          water.data[1] = 100;
+        setData();
 
-          // ranking
-          ranking.data[0].value = res.job.total + 1000;
-          ranking.data[1].value = res.user.total + 5000;
+        // rate
+        rate[1].tips = res.job.total + 1000;
+        rate[0].tips = res.user.total + 5000;
 
-          flagShow.value = true;
-        });
+        // water
+        water.data[1] = 100;
+
+        // ranking
+        ranking.data[0].value = res.job.total + 1000;
+        ranking.data[1].value = res.user.total + 5000;
+
+        flagShow.value = true;
+      }, 1000);
     };
 
     return {

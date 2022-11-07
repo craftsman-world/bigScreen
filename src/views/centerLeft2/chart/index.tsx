@@ -1,5 +1,6 @@
+import store from '@/store';
 import axios from 'axios';
-import { defineComponent, reactive , onMounted} from 'vue'
+import { defineComponent, reactive, onMounted } from 'vue'
 import Draw from './draw'
 
 export default defineComponent({
@@ -50,22 +51,19 @@ export default defineComponent({
       // }
     ])
 
-    onMounted(()=>{
+    onMounted(() => {
       getData()
     })
 
     const getData = () => {
-      axios
-        .get("https://prod.api.craftsman.wpaini.com/admin/sum/public")
-        .then(({ data: { data: res } }) => {
-          res.user.countByWantPro.map((e) => {
-            cdata.push(
-              {
-                name: e.name.split("省")[0],
-                value: e.count,
-              },)
-          })
-        });
+      let res = store.getters.data;
+      res.user.countByWantPro.map((e) => {
+        cdata.push(
+          {
+            name: e.name.split("省")[0],
+            value: e.count,
+          },)
+      })
     };
 
     return () => {
