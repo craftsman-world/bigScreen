@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>秒开工大数据页面可视化</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- 头部模块 -->
+    <header>
+        <h1><span>秒开工大数据</span></h1>
+        <p><span>四川匠天下科技有限公司</span></p>
+    </header>
+
+    <div class="main">
+        <!-- 工作分析 -->
+        <div class="top5">
+            <div class="top5-title">
+                <span>“秒开工”招工统计</span>
+            </div>
+            <div class="top5-content">
+                <ul>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>招工总数</span>
+                            <span id="jobTotal"></span>
+                            <!-- <span>82%</span> -->
+                            <span><img src="./images/up.png" alt=""></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>日增长</span>
+                            <span id="dayIncrease"></span>
+                            <!-- <span>82%</span> -->
+                            <span><img src="./images/up.png" alt=""></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>周增长</span>
+                            <span id="weeklyIncrease"></span>
+                            <!-- <span>82%</span> -->
+                            <span><img src="./images/up.png" alt=""></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>月增长</span>
+                            <span id="monthIncrease"></span>
+                            <!-- <span>82%</span> -->
+                            <span><img src="./images/up.png" alt=""></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>年增长</span>
+                            <span id="yearIncrease"></span>
+                            <!-- <span>82%</span> -->
+                            <span><img src="./images/up.png" alt=""></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="top5-title">
+                <span>招工数量城市占比前三</span>
+            </div>
+        </div>
+        <!--  用户分析  -->
+        <div class="total">
+            <div class="data1">
+                <span>日增长用户</span>
+                <p id="userDailyInc"></p>
+            </div>
+            <div class="data2">
+                <span>月增长用户</span>
+                <p id="userMonthInc"></p>
+            </div>
+            <div class="data3">
+                <span>周增长用户</span>
+                <p id="userWeeklyInc"></p>
+            </div>
+            <div class="data4">
+                <span>年增长用户</span>
+                <p id="userYearInc"></p>
+            </div>
+            <canvas class="rain"></canvas>
+            <canvas class="dashed"></canvas>
+            <div class="sphere">
+                <div class="sphere-bg"></div>
+                <div class="sum">
+                    <span>用户总数</span>
+                    <p id="userTotal"></p>
+                </div>
+            </div>
+            <div class="cicle3"></div>
+            <div class="cicle4"></div>
+            <div class="cicle5"></div>
+            <div class="cicle6"></div>
+            <div class="cicle7"></div>
+            <div class="cicle8">
+                <span id="workeTypeData1"></span>
+                <p id="workeType1"></p>
+            </div>
+            <div class="cicle9">
+                <span id="workeTypeData2"></span>
+                <p id="workeType2"></p>
+            </div>
+            <div class="cicle10">
+                <span id="workeTypeData3"></span>
+                <p id="workeType3"></p>
+            </div>
+            <div class="cicle11">
+                <span id="workeTypeData4"></span>
+                <p id="workeType4"></p>
+            </div>
+            <div class="cicle12">
+                <span id="workeTypeData5"></span>
+                <p id="workeType5"></p>
+            </div>
+        </div>
+        <!-- 用户分析 -->
+        <div class="analyse">
+            <div class="analyse-title">
+                <span>用户城市占比前三</span>
+            </div>
+            <ul>
+                <li>
+                    <img src="./images/s1.png" alt="">
+                    <h5 id="proName1"></h5><br>
+                    <span>Provence First Data</span><br>
+                    <em id="proName1Data"></em>
+                </li>
+                <li>
+                    <img src="./images/s3.png" alt="">
+                    <h5 id="proName2"></h5><br>
+                    <span>Provence Sec Data</span><br>
+                    <em id="proName2Data"></em>
+                </li>
+                <li>
+                    <img src="./images/s2.png" alt="">
+                    <h5 id="proName3"></h5><br>
+                    <span>Provence Third Data</span><br>
+                    <em id="proName3Data"></em>
+                </li>
+            </ul>
+            <div class="execution">
+                <div class="title">前二占比</div>
+                <div class="cicle1"></div>
+                <div class="cicle2"></div>
+                <div class="waterChart1">
+                    <div class="chart-title" id="userRatio1"></div>
+                    <div class="chart1"></div>
+                </div>
+                <div class="waterChart2">
+                    <div class="chart-title" id="userRatio2"></div>
+                    <div class="chart2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 城市占比前三 -->
+        <div class="sale">
+            <ul>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/city.png" alt="">
+                    </div>
+                    <div class="data">
+                        <span id="jobName1"></span>
+                        <span id="jobData1"></span>
+                    </div>
+                    <div class="shoeChart"></div>
+                </li>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/city.png" alt="">
+                    </div>
+                    <div class="data">
+                        <span id="jobName2"></span>
+                        <span id="jobData2"></span>
+                    </div>
+                    <div class="clothesChart"></div>
+                </li>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/city.png" alt="">
+                    </div>
+                    <div class="data">
+                        <span id="jobName3"></span>
+                        <span id="jobData3"></span>
+                    </div>
+                    <div class="mzChart"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- 折线图 -->
+        <div class="lineChart">
+
+        </div>
+    </div>
+
+    <!-- 底部模块 -->
+    <div class="bottom">
+        <h5><span>数据状况</span></h5>
+        <p>Data Status</p>
+    </div>
+</body>
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script src="./node_modules/echarts-liquidfill/dist/echarts-liquidfill.min.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/data.js"></script>
+
+</html>
