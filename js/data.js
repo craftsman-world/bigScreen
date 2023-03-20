@@ -1,6 +1,7 @@
 // https://prod.api.craftsman.wpaini.com/admin/sum/public
 
-$.get("https://prod.api.craftsman.wpaini.com/admin/sum/public", (res) => {
+function getData() {
+    $.get("https://prod.api.craftsman.wpaini.com/admin/sum/public", (res) => {
     let data = res.data
     console.log(data);
 
@@ -75,3 +76,10 @@ $.get("https://prod.api.craftsman.wpaini.com/admin/sum/public", (res) => {
     });
     lineChart('.lineChart', xdata, dataArr)
 })
+
+}
+
+getData()
+setTimeout(() => {
+    getData()
+}, 1000  * 60 * 30);
