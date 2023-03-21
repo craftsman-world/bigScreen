@@ -184,7 +184,7 @@ function lineChart(ele, xdata, dataArr) {
     var seriesName = '';
     option = {
         title: {
-            text: '用户省份分布折现图',
+            text: '用户省份分布折线图',
             textStyle: {
                 fontSize: 16,
                 color: "#34a39a",
