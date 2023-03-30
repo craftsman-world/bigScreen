@@ -277,18 +277,18 @@ function lineChart(ele, xdata, dataArr) {
         },]
     };
 
-    var index = 0; //播放所在下标
-    var mTime = setInterval(function () {
-        chart.dispatchAction({
-            type: 'showTip',
-            seriesIndex: 0,
-            dataIndex: index
-        });
-        index++;
-        if (index > xdata.length) {
-            index = 0;
-        }
-    }, 1500);
+    // var index = 0; //播放所在下标
+    // var mTime = setInterval(function () {
+    //     chart.dispatchAction({
+    //         type: 'showTip',
+    //         seriesIndex: 0,
+    //         dataIndex: index
+    //     });
+    //     index++;
+    //     if (index > xdata.length) {
+    //         index = 0;
+    //     }
+    // }, 1500);
 
 
     chart.setOption(option)
