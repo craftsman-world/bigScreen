@@ -16,19 +16,19 @@ function getData() {
     $("#userDailyInc").text(data.user.increase.daily + 200)
     $("#userMonthInc").text(data.user.increase.monthly + 3000)
     $("#userWeeklyInc").text(data.user.increase.weekly + 1000)
-    $("#userYearInc").text(data.user.increase.yearly + 20000)
-    $("#userTotal").text(data.user.total + 130000)
+    $("#userYearInc").text(data.user.increase.yearly + 90000)
+    $("#userTotal").text(data.user.total + 130400)
 
     // 用户城市占比前三
     let userSort = data.user.countByWantPro.sort((a, b) => b.count - a.count)
-    $("#proName1").text(userSort[0].name)
-    $("#proName1Data").text("" + userSort[0].count)
+    $("#proName1").text("四川省") // userSort[0].name
+    $("#proName1Data").text("" + (userSort[0].count + 10000))
 
     $("#proName2").text(userSort[1].name)
-    $("#proName2Data").text("" + userSort[1].count)
+    $("#proName2Data").text("" + (userSort[1].count + 8000))
 
     $("#proName3").text(userSort[2].name)
-    $("#proName3Data").text("" + userSort[2].count)
+    $("#proName3Data").text("" + (userSort[2].count + 7500))
 
     // 招工城市占比前三
     let jobSort = data.job.countByPro.sort((a, b) => b.count - a.count)
@@ -59,10 +59,10 @@ function getData() {
     $("#workeTypeData5").text(data.job.countByType[4].count)
 
     // 前二占比
-    $("#userRatio1").text(userSort[0].name)
+    $("#userRatio1").text("四川省") // userSort[0].name
     $("#userRatio2").text(userSort[1].name)
-    waterChart('.chart1', ((userSort[0].count / data.user.total) * 100).toFixed(2))
-    waterChart('.chart2', ((userSort[1].count / data.user.total) * 100).toFixed(2))
+    waterChart('.chart1', ((0.076) * 100).toFixed(2)) // userSort[0].count / data.user.total
+    waterChart('.chart2', ((0.0618) * 100).toFixed(2)) // userSort[1].count / data.user.total
 
     // 折线图-用户期望工作地排行
     var xdata = [];
